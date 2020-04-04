@@ -1,0 +1,10 @@
+# Files
+*.txt
+*.csv
+# Folders
+out/
+dist/
+build/
+.venv/
+*.egg-info/
+**/__pycache__/
