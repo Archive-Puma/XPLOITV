@@ -27,6 +27,15 @@ class Arguments(object):
             version="xploitv v0.1.0",
             help="Print the version")
 
+        # ---- Performance
+        performance = self.__parser.add_argument_group(title="performance")
+        # Number of threads
+        performance.add_argument(
+            "-t", "--threads",
+            type=int,
+            default=20,
+            help="Define the number of threads")
+
         # ---- Output
         output = self.__parser.add_argument_group(title="output")
         # Output format

@@ -18,10 +18,12 @@ def show_banner():
    [[ An automated Xploitv grabber ]]
 """)
 
-def multithreading(grabber: Grabber, codes: list) -> None:
-    threads: list = [ threading.Thread(target=grabber.steal, args=(code,)) for code in codes ]
-    for thread in threads: thread.start()
-    for thread in threads: thread.join()
+def multithreading(grabber: Grabber, codes: list, nthreads: int) -> None:
+    logging.debug(f"Running {nthreads} threads...")
+    for i in range(0,len(codes),nthreads):
+        threads: list = [ threading.Thread(target=grabber.steal, args=(code,)) for code in codes[i:i+nthreads] ]
+        for thread in threads: thread.start()
+        for thread in threads: thread.join()
 
 def entrypoint() -> None:
     # Parse the arguments
@@ -52,7 +54,7 @@ def entrypoint() -> None:
             logging.info(f"Using the wordlist {args.wordlist}")
             with open(args.wordlist) as wordlist:
                 lines = [ line[:-1] for line in wordlist.readlines() if len(line) > 0 ]
-            multithreading(grabber, lines)
+            multithreading(grabber, lines, args.threads)
     # Output
     if args.extension: grabber.set_format(args.extension.lower())
     grabber.output()
