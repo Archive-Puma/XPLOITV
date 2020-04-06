@@ -4,17 +4,14 @@ from setuptools import setup, find_packages
 
 REPOSITORY:str = "https://www.github.com/cosasdepuma/XPLOITV"
 
-def readme() -> str:
-    return "Xploitv"
-
-def requirements() -> list:
-    pass
+with open("README.md", encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='xploitv',
-    version='0.1.0',
+    version='0.1.1',
     description='An automated Xploitv grabber',
-    long_description=readme(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     license="WTFPL",
     keywords="xploitv facebook grabber hacking",
@@ -28,7 +25,7 @@ setup(
     },
     packages=find_packages(),
     zip_safe=True,
-    install_requires=requirements(),
+    install_requires=[],
     python_requires=">=3.8",
     platforms=["any"],
     entry_points={ 'console_scripts': ['xploitv=xploitv:cli'] },

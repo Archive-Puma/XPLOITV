@@ -1,14 +1,25 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# Core modules
+# --------------
 import os
 import sys
 import argparse
 
+# File type
+# -----------
 def rfile(path: str):
+    ''' Defines the characteristics of a read file '''
     file: str = None
     if os.path.isfile(path) and os.access(path, os.R_OK): file = path
     return file
 
+# Arguments class
+# -----------------
 class Arguments(object):
     def __init__(self):
+        ''' Argument parser '''
         # Name and description
         self.__parser = argparse.ArgumentParser(
             prog="xploitv",
@@ -24,7 +35,7 @@ class Arguments(object):
         information.add_argument(
             "--version",
             action="version",
-            version="xploitv v0.1.0",
+            version="xploitv v0.1.1",
             help="Print the version")
 
         # ---- Performance
@@ -38,6 +49,11 @@ class Arguments(object):
 
         # ---- Output
         output = self.__parser.add_argument_group(title="output")
+        # No banner
+        output.add_argument(
+            "-b", "--bare",
+            action="store_true",
+            help="Hide the banner")
         # Output format
         output.add_argument(
             "-x", "--extension",
@@ -63,8 +79,10 @@ class Arguments(object):
             help="Grab all the accounts linked to identifiers in a wordlist")
 
     def parse(self):
+        ''' Parse the arguments '''
         return self.__parser.parse_args()
 
     def help(self):
+        ''' Show the help message '''
         self.__parser.print_help()
         sys.exit(1)
