@@ -1,6 +1,8 @@
 # XPLOITV
 
-![PyPI](https://img.shields.io/pypi/v/xploitv?color=blue&style=for-the-badge) ![PyPI - Downloads](https://img.shields.io/pypi/dm/xploitv?color=green&style=for-the-badge) ![License](https://img.shields.io/github/license/cosasdepuma/xploitv?color=orange&style=for-the-badge)
+[![PyPI](https://img.shields.io/pypi/v/xploitv?color=blue&style=for-the-badge)](https://pypi.org/project/xploitv)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/xploitv?color=green&style=for-the-badge)](https://pypi.org/project/xploitv)
+[![License](https://img.shields.io/github/license/cosasdepuma/xploitv?color=orange&style=for-the-badge)](https://github.com/CosasDePuma/XPLOITV/blob/master/LICENSE)
 
 
 ## Disclaimer
